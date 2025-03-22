@@ -4,13 +4,11 @@ import webpack from 'webpack';
 
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 
-const is_prod = (process.env['NODE_ENV'] ?? '') === 'production';
-
 /** @type {import('webpack').Configuration} */
 const config = {
-  devtool: is_prod ? false : 'source-map',
+  devtool: 'source-map',
   entry: './src/main.tsx',
-  mode: is_prod ? 'production' : 'development',
+  mode: 'production',
   module: {
     rules: [
       {
