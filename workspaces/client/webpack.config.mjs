@@ -4,11 +4,13 @@ import webpack from 'webpack';
 
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 
+const is_prod = (process.env['NODE_ENV'] ?? '') === 'production';
+
 /** @type {import('webpack').Configuration} */
 const config = {
-  devtool: 'inline-source-map',
+  devtool: is_prod ? false : 'source-map',
   entry: './src/main.tsx',
-  mode: 'none',
+  mode: is_prod ? 'production' : 'development',
   module: {
     rules: [
       {
@@ -61,9 +63,9 @@ const config = {
     publicPath: 'auto',
   },
   plugins: [
+    new BundleAnalyzerPlugin.BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false }),
     new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
     new webpack.EnvironmentPlugin({ API_BASE_URL: '/api', NODE_ENV: '' }),
-    new BundleAnalyzerPlugin.BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false }),
   ],
   resolve: {
     alias: {
