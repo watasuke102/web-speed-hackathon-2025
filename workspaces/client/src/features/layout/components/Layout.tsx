@@ -32,7 +32,6 @@ export const Layout = ({ children }: Props) => {
   const user = useAuthUser();
 
   const [scrollTopOffset, setScrollTopOffset] = useState(0);
-  const [shouldHeaderBeTransparent, setShouldHeaderBeTransparent] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,10 +45,7 @@ export const Layout = ({ children }: Props) => {
     };
   }, []);
 
-  useEffect(() => {
-    setShouldHeaderBeTransparent(scrollTopOffset > 80);
-  }, [scrollTopOffset]);
-
+  const shouldHeaderBeTransparent = scrollTopOffset > 80;
   const isSignedIn = user != null;
 
   return (
@@ -67,8 +63,8 @@ export const Layout = ({ children }: Props) => {
             <img
               alt="AREMA"
               className="object-contain"
-              height={36}
               decoding="async"
+              height={36}
               loading="lazy"
               src="/public/arema.svg"
               width={98}
