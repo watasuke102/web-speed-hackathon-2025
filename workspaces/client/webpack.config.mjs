@@ -1,7 +1,6 @@
 import path from 'node:path';
 
 import webpack from 'webpack';
-
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 
 /** @type {import('webpack').Configuration} */

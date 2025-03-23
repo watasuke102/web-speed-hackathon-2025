@@ -41,10 +41,10 @@ var reIsOctal = /^0o[0-7]+$/i;
 var freeParseInt = parseInt;
 
 /* Detect free variable `global` from Node.js. */
-var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+var freeGlobal = typeof global === 'object' && global && global.Object === Object && global;
 
 /* Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+var freeSelf = typeof self === 'object' && self && self.Object === Object && self;
 
 /* Used as a reference to the global object. */
 var root = freeGlobal || freeSelf || Function('return this')();
@@ -149,7 +149,7 @@ export function debounce(func, wait, options?: object) {
     maxing = false,
     trailing = true;
 
-  if (typeof func != 'function') {
+  if (typeof func !== 'function') {
     throw new TypeError(FUNC_ERROR_TEXT);
   }
   wait = toNumber(wait) || 0;
@@ -318,7 +318,7 @@ function isObject(value) {
  * // => false
  */
 function isObjectLike(value) {
-  return !!value && typeof value == 'object';
+  return !!value && typeof value === 'object';
 }
 
 /*
@@ -339,7 +339,7 @@ function isObjectLike(value) {
  * // => false
  */
 function isSymbol(value) {
-  return typeof value == 'symbol' || (isObjectLike(value) && objectToString.call(value) == symbolTag);
+  return typeof value === 'symbol' || (isObjectLike(value) && objectToString.call(value) == symbolTag);
 }
 
 /*
@@ -366,17 +366,17 @@ function isSymbol(value) {
  * // => 3.2
  */
 function toNumber(value) {
-  if (typeof value == 'number') {
+  if (typeof value === 'number') {
     return value;
   }
   if (isSymbol(value)) {
     return NAN;
   }
   if (isObject(value)) {
-    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+    var other = typeof value.valueOf === 'function' ? value.valueOf() : value;
     value = isObject(other) ? other + '' : other;
   }
-  if (typeof value != 'string') {
+  if (typeof value !== 'string') {
     return value === 0 ? value : +value;
   }
   value = value.replace(reTrim, '');
@@ -485,19 +485,19 @@ typedArrayTags[argsTag] =
     false;
 
 /* Detect free variable `global` from Node.js. */
-var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+var freeGlobal = typeof global === 'object' && global && global.Object === Object && global;
 
 /* Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+var freeSelf = typeof self === 'object' && self && self.Object === Object && self;
 
 /* Used as a reference to the global object. */
 var root = freeGlobal || freeSelf || Function('return this')();
 
 /* Detect free variable `exports`. */
-var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
+var freeExports = typeof exports === 'object' && exports && !exports.nodeType && exports;
 
 /* Detect free variable `module`. */
-var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+var freeModule = freeExports && typeof module === 'object' && module && !module.nodeType && module;
 
 /* Detect the popular CommonJS extension `module.exports`. */
 var moduleExports = freeModule && freeModule.exports === freeExports;
@@ -1559,7 +1559,7 @@ function createAssigner(assigner) {
       customizer = length > 1 ? sources[length - 1] : undefined,
       guard = length > 2 ? sources[2] : undefined;
 
-    customizer = assigner.length > 3 && typeof customizer == 'function' ? (length--, customizer) : undefined;
+    customizer = assigner.length > 3 && typeof customizer === 'function' ? (length--, customizer) : undefined;
 
     if (guard && isIterateeCall(sources[0], sources[1], guard)) {
       customizer = length < 3 ? undefined : customizer;
@@ -1610,7 +1610,7 @@ function createBaseFor(fromRight) {
  */
 function getMapData(map, key) {
   var data = map.__data__;
-  return isKeyable(key) ? data[typeof key == 'string' ? 'string' : 'hash'] : data.map;
+  return isKeyable(key) ? data[typeof key === 'string' ? 'string' : 'hash'] : data.map;
 }
 
 /*
@@ -1661,7 +1661,7 @@ function getRawTag(value) {
  * @returns {Object} Returns the initialized clone.
  */
 function initCloneObject(object) {
-  return typeof object.constructor == 'function' && !isPrototype(object) ? baseCreate(getPrototype(object)) : {};
+  return typeof object.constructor === 'function' && !isPrototype(object) ? baseCreate(getPrototype(object)) : {};
 }
 
 /*
@@ -1740,7 +1740,7 @@ function isMasked(func) {
  */
 function isPrototype(value) {
   var Ctor = value && value.constructor,
-    proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
+    proto = (typeof Ctor === 'function' && Ctor.prototype) || objectProto;
 
   return value === proto;
 }
@@ -2092,7 +2092,7 @@ function isFunction(value) {
  * // => false
  */
 function isLength(value) {
-  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+  return typeof value === 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
 }
 
 /*
@@ -2132,7 +2132,7 @@ function isPlainObject(value) {
     return true;
   }
   var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+  return typeof Ctor === 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
 }
 
 /*

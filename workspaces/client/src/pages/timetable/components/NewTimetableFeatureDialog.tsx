@@ -15,8 +15,8 @@ export const NewTimetableFeatureDialog = ({ isOpen }: Props) => {
         <div className="mb-[16px] flex w-full flex-row justify-center">
           <img
             className="object-contain"
-            height={36}
             decoding="async"
+            height={36}
             loading="lazy"
             src="/public/arema.svg"
             width={98}

@@ -1,3 +1,4 @@
+import { Icon } from '@iconify/react';
 import * as Slider from '@radix-ui/react-slider';
 import { StandardSchemaV1 } from '@standard-schema/spec';
 import * as schema from '@wsh-2025/schema/src/api/schema';
@@ -61,9 +62,9 @@ export const PlayerController = ({ episode }: Props) => {
                     togglePlaying();
                   }}
                 >
-                  <span
-                    className={`i-material-symbols:${playing ? 'pause-rounded' : 'play-arrow-rounded'} m-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]`}
-                  />
+                  <span className="m-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]">
+                    <Icon icon={`material-symbols:${playing ? 'pause-rounded' : 'play-arrow-rounded'} `} />
+                  </span>
                 </button>
               </Hoverable>
 
@@ -83,11 +84,13 @@ export const PlayerController = ({ episode }: Props) => {
                 type="button"
               >
                 <span
-                  className={`i-material-symbols:${muted ? 'volume-off-rounded' : 'volume-up-rounded'} m-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]`}
+                  className="m-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]"
                   onClick={() => {
                     toggleMuted();
                   }}
-                />
+                >
+                  <Icon icon={`material-symbols:${muted ? 'volume-off-rounded' : 'volume-up-rounded'}`} />
+                </span>
               </button>
             </Hoverable>
           </div>

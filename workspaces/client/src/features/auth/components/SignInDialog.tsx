@@ -1,4 +1,5 @@
 import { BetterFetchError } from '@better-fetch/fetch';
+import { Icon } from '@iconify/react';
 import { FORM_ERROR } from 'final-form';
 import { useId } from 'react';
 import { Field, Form } from 'react-final-form';
@@ -49,8 +50,8 @@ export const SignInDialog = ({ isOpen, onClose, onOpenSignUp }: Props) => {
         <div className="mb-[16px] flex w-full flex-row justify-center">
           <img
             className="object-contain"
-            height={36}
             decoding="async"
+            height={36}
             loading="lazy"
             src="/public/arema.svg"
             width={98}
@@ -128,7 +129,9 @@ export const SignInDialog = ({ isOpen, onClose, onOpenSignUp }: Props) => {
 
               {submitError ? (
                 <div className="mb-[8px] flex w-full flex-row items-center justify-start rounded-[4px] border-[2px] border-solid border-[#F0163A] bg-[#ffeeee] p-[8px] text-[14px] font-bold text-[#F0163A]">
-                  <div className="i-material-symbols:error-outline m-[4px] size-[20px]" />
+                  <div className="m-[4px] size-[20px]">
+                    <Icon icon="material-symbols:error-outline " />
+                  </div>
                   <span>{submitError}</span>
                 </div>
               ) : null}
