@@ -16,6 +16,7 @@ export const Document = () => {
         <meta charSet="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <script src="/public/main.js"></script>
+        <link href="https://api.iconify.design" rel="preconnect" />
       </head>
       <body className="size-full bg-[#000000] text-[#ffffff]">
         <Suspense>
