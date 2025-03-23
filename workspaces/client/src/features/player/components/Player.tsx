@@ -14,7 +14,7 @@ interface Props {
   playlistUrl: string;
 }
 
-export const Player = ({ className, loop, playerRef, playerType, playlistUrl }: Props) => {
+export default function Player({ className, loop, playerRef, playerType, playlistUrl }: Props) {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -57,4 +57,4 @@ export const Player = ({ className, loop, playerRef, playerType, playlistUrl }: 
       </div>
     </div>
   );
-};
+}
