@@ -485,6 +485,9 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
               series: {
                 with: {
                   episodes: {
+                    columns: {
+                      description: false,
+                    },
                     orderBy(episode, { asc }) {
                       return asc(episode.order);
                     },
@@ -496,6 +499,9 @@ export async function registerApi(app: FastifyInstance): Promise<void> {
                   series: {
                     with: {
                       episodes: {
+                        columns: {
+                          description: false,
+                        },
                         orderBy(episode, { asc }) {
                           return asc(episode.order);
                         },
