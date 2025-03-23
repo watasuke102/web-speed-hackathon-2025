@@ -63,7 +63,11 @@ export const PlayerController = ({ episode }: Props) => {
                   }}
                 >
                   <span className="m-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]">
-                    <Icon icon={`material-symbols:${playing ? 'pause-rounded' : 'play-arrow-rounded'} `} />
+                    {playing ? (
+                      <Icon icon="material-symbols:pause-rounded" />
+                    ) : (
+                      <Icon icon="material-symbols:play-arrow-rounded" />
+                    )}
                   </span>
                 </button>
               </Hoverable>
@@ -89,7 +93,11 @@ export const PlayerController = ({ episode }: Props) => {
                     toggleMuted();
                   }}
                 >
-                  <Icon icon={`material-symbols:${muted ? 'volume-off-rounded' : 'volume-up-rounded'}`} />
+                  {muted ? (
+                    <Icon icon="material-symbols:volume-off-rounded" />
+                  ) : (
+                    <Icon icon="material-symbols:volume-up-rounded" />
+                  )}
                 </span>
               </button>
             </Hoverable>

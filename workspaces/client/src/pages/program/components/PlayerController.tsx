@@ -30,7 +30,11 @@ export const PlayerController = () => {
                 }}
               >
                 <span className="m-[14px] block size-[20px] shrink-0 grow-0 text-[#FFFFFF]">
-                  <Icon icon={`material-symbols:${muted ? 'volume-off-rounded' : 'volume-up-rounded'}`} />
+                  {muted ? (
+                    <Icon icon="material-symbols:volume-off-rounded" />
+                  ) : (
+                    <Icon icon="material-symbols:volume-up-rounded" />
+                  )}
                 </span>
               </button>
             </Hoverable>
