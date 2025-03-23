@@ -145,7 +145,7 @@ async function main() {
       const data: (typeof schema.episode.$inferInsert)[] = Array.from(
         { length: faker.number.int({ max: 20, min: 10 }) },
         (_, idx) => ({
-          description: faker.lorem.paragraph({ max: 200, min: 100 }).replace(/\s/g, '').replace(/\./g, '。'),
+          description: faker.lorem.paragraph({ max: 100, min: 100 }).replace(/\s/g, '').replace(/\./g, '。'),
           id: faker.string.uuid(),
           order: idx + 1,
           seriesId: series.id,
