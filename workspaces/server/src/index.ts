@@ -11,7 +11,8 @@ import { registerStreams } from '@wsh-2025/server/src/streams';
 async function main() {
   await initializeDatabase();
 
-  const app = fastify();
+  const is_dev = process.env['NODE_ENV'] === 'development';
+  const app = fastify(is_dev ? {} : { http2: true });
 
   app.addHook('onSend', async (_req, reply) => {
     reply.header('cache-control', 'no-store');
